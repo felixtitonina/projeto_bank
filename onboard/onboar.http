@@ -1,6 +1,7 @@
 
 ###
-GET http://localhost:3002/
+# GET http://localhost:3002
+GET http://localhost:3002?email=email@outlook.com
 
 ###
 POST http://localhost:3002/
@@ -9,6 +10,6 @@ Content-Type: application/json
 {
     "name": "felix tito nina",
     "email": "email@outlook.com",
-    "document": "43047717878"
+    "document": "43047717889"
     # "businessName": "businessName"
 }

@@ -28,8 +28,8 @@ export class Address {
   @Column({ type: 'boolean' })
   default: boolean;
 
-  @Column({ type: 'text' })
-  idOnboard: string;
+  @Column({ type: 'numeric' })
+  idCustomer: number;
 
   // @OneToMany(() => Video, (video) => video.room)
   // videos: Video[];

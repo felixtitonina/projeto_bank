@@ -15,8 +15,8 @@ export class Phone {
   @Column({ type: 'boolean' })
   default: boolean;
 
-  @Column({ type: 'text' })
-  idOnboard: string;
+  @Column({ type: 'numeric' })
+  idCustomer: number;
 
   // @ManyToOne(() => Room, (room) => room.videos)
   // @JoinColumn({ name: 'room_id' })

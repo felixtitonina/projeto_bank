@@ -58,6 +58,6 @@ export const errorMiddleware = (
     return res.status(409).json(data);
   }
 
-  const message = error.message ? error : { message: 'Internal Server Error' };
-  return res.status(statusCode).json(message);
+  const message = error.message ? error.message : { message: 'Internal Server Error' };
+  return res.status(statusCode).json({ message });
 };

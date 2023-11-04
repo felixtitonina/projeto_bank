@@ -1,7 +1,7 @@
 
 ###
 # GET http://localhost:3002
-GET http://localhost:3002/addresses
+GET http://localhost:3002/addresses?page=0&limit=1
 
 ###
 POST http://localhost:3002/addresses
@@ -9,11 +9,11 @@ Content-Type: application/json
 
 {
   "street": "string",
-  # "neighborhood": "string",
-  # "city": "string",
-  # "state": "string",
-  # "postalCode": "string",
-  # "country": "string",
+  "neighborhood": "string",
+  "city": "string",
+  "state": "string",
+  "postalCode": "string",
+  "country": "string",
   "default": false,
   "idCustomer": 1
 }

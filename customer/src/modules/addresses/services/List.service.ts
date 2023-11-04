@@ -9,6 +9,7 @@ interface IRequesPagination {
 interface IPaginateCustomer {
   limit: number | undefined;
   page: number | undefined;
+  total: number | undefined;
   data: Address[];
 }
 class ListService {
@@ -17,13 +18,15 @@ class ListService {
       idCustomer: query.idCustomer,
     };
     const opt = {
-      limit: !query.limit ? 0 : query.limit,
-      page: !query.page ? 5 : query.page,
+      limit: !query.limit ? 5 : query.limit,
+      page: !query.page ? 0 : query.page,
     };
     const address = await AddressRepository.findAll(queryString, opt);
+    const total = await AddressRepository.findCount(queryString, opt);
     return {
       limit: opt.limit,
       page: opt.page,
+      total,
       data: address,
     };
   }

@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+	  "downlevelIteration": true,
 	  "target": "es2018", /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
 	  "lib": [
 		"es5",

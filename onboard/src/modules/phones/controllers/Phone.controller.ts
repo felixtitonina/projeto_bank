@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import { customerRepository } from '../repositories/Customer.repository';
-import { phoneRepository } from '../repositories/Phone.repository';
-import { BadRequestError } from '../helpers/api-erros';
+import { customerRepository } from '../../customers/typeorm/repositories/Customer.repository';
+import { phoneRepository } from '../typeorm/repositories/Phone.repository';
+import { BadRequestError } from '../../../helpers/api-erros';
 
-export class PhoneController {
+export default class PhoneController {
   async create(req: Request, res: Response) {
     const { body } = req;
     const customer = await customerRepository.findOneBy({ id: body.idCustomer });

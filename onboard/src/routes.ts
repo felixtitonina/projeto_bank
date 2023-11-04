@@ -1,17 +1,12 @@
 import { Router } from 'express';
-import { CustomerController } from './controllers/Customer.controller';
-import { AddressController } from './controllers/Address.controller';
-import { PhoneController } from './controllers/Phone.controller';
+import customersRouter from './modules/customers/routes/curtomers.routes';
+import adressesRouter from './modules/addresses/routes/addresses.routes';
+import phonesRouter from './modules/phones/routes/phone.routes';
 
 const routes = Router();
 
-routes.post('/customer', new CustomerController().create);
-routes.get('/customer', new CustomerController().list);
-
-routes.post('/address', new AddressController().create);
-routes.get('/address', new AddressController().list);
-
-routes.post('/phone', new PhoneController().create);
-routes.get('/phone', new PhoneController().list);
+routes.use('/customers', customersRouter);
+routes.use('/addresses', adressesRouter);
+routes.use('/phones', phonesRouter);
 
 export default routes;

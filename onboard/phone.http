@@ -1,14 +1,14 @@
 
 ###
-GET http://localhost:3002/phone
+GET http://localhost:3002/phones
 
 ###
-POST http://localhost:3002/phone
+POST http://localhost:3002/phones
 Content-Type: application/json
 
 {
-  "ddd": 11,
-  "phone": 985522347,
-  "default": false,
+  # "ddd": 11,
+  # "phone": 985522347,
+  # "default": false,
   "idCustomer": 1
 }

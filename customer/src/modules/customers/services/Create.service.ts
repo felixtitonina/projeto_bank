@@ -12,9 +12,8 @@ interface IRequest {
 class CreateService {
   public async execute(body: IRequest): Promise<Customer> {
     const findDocument = await customerRepository.findByDocuments(body.document);
-    if (findDocument) {
-      throw new NotFoundError('Documento já cadastrado');
-    }
+    if (findDocument) throw new NotFoundError('Documento já cadastrado');
+
     const newAddress = customerRepository.create(body);
     const returnSave = await customerRepository.save(newAddress);
     return returnSave as Customer;

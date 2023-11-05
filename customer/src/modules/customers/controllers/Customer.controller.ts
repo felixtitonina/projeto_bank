@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import CreateService from '../services/Create.service';
 import ListService from '../services/List.service';
+import FindByIdService from '../services/FindById.service';
 export default class CustomerController {
   async create(req: Request, res: Response) {
     const createService = new CreateService();
@@ -17,7 +18,9 @@ export default class CustomerController {
   }
 
   async id(req: Request, res: Response) {
-    // const rooms = await customerRepository.find({});
-    return res.json('rooms');
+    const findByIdService = new FindByIdService();
+    const { id } = req.params;
+    const customer = await findByIdService.execute(Number(id));
+    return res.json({ ...customer });
   }
 }

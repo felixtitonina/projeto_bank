@@ -17,5 +17,5 @@ Content-Type: application/json
   "postalCode": "string",
   "country": "string",
   "default": false,
-  "idCustomer": 1
+  "idCustomer": 11111
 }

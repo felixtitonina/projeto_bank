@@ -6,6 +6,7 @@ const customersRouter = Router();
 const customersController = new CustomersController();
 
 customersRouter.get('/', customersController.list);
+customersRouter.get('/:id', customersController.id);
 
 customersRouter.post(
   '/',

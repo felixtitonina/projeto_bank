@@ -6,14 +6,16 @@ import routes from './routes';
 import apiMetrics from 'prometheus-api-metrics';
 import { errors } from 'celebrate';
 
-AppDataSource.initialize().then(() => {
-  const app = express();
+AppDataSource.initialize()
+  .then(() => {
+    const app = express();
 
-  app.use(express.json());
+    app.use(express.json());
 
-  app.use(errors());
-  app.use(routes);
-  app.use(apiMetrics());
-  app.use(errorMiddleware);
-  return app.listen(process.env.PORT);
-});
+    app.use(errors());
+    app.use(routes);
+    app.use(apiMetrics());
+    app.use(errorMiddleware);
+    return app.listen(process.env.PORT);
+  })
+  .catch((error) => console.log('TypeORM connection error: ', error));

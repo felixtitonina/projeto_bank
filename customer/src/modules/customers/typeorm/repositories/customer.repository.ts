@@ -2,6 +2,15 @@ import { AppDataSource } from '../../../../data-source';
 import { Customer } from '../entities/Customer.entitie';
 
 export const customerRepository = AppDataSource.getRepository(Customer).extend({
+  findByIdCustomer(id: number) {
+    const findByIdCustomer = this.findOne({
+      where: {
+        id: id,
+      },
+    });
+    return findByIdCustomer;
+  },
+
   findByDocuments(document: string) {
     const findDocument = this.findBy({
       document,

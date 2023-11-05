@@ -6,6 +6,9 @@ GET http://localhost:3002/customers?email=email@outlook.com
 GET http://localhost:3002/customers
 
 ###
+GET http://localhost:3002/customers/11111
+
+###
 POST http://localhost:3002/customers
 Content-Type: application/json
 

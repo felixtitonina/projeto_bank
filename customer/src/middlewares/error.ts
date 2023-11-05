@@ -2,6 +2,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { ApiError } from '../helpers/api-erros';
 import { celebrate, Joi, Segments, isCelebrateError } from 'celebrate';
+import { EntityNotFoundError, QueryFailedError } from 'typeorm';
 
 export const errorMiddleware = (
   error: Error & Partial<ApiError>,
@@ -54,7 +55,13 @@ export const errorMiddleware = (
     }
     return res.status(409).json(data);
   }
+  if (error instanceof EntityNotFoundError) {
+    return res.status(404).json({ message: 'Não encontrado.' });
+  }
+  if (error instanceof QueryFailedError) {
+    return res.status(404).json({ message: 'Filtros inválidos.' });
+  }
 
-  const message = error.message ? error.message : { message: 'Internal Server Error' };
+  const message = error.message ? error.message : { message: 'Internal Server Error.' };
   return res.status(statusCode).json({ message });
 };

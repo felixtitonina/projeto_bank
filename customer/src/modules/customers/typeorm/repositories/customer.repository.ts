@@ -12,7 +12,7 @@ export const customerRepository = AppDataSource.getRepository(Customer).extend({
   },
 
   findByDocuments(document: string) {
-    const findDocument = this.findBy({
+    const findDocument = this.findOneBy({
       document,
     });
     return findDocument;

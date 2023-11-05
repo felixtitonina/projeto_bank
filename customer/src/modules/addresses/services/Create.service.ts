@@ -1,6 +1,5 @@
-import { AddressRepository } from '../typeorm/repositories/Address.repository';
+import { addressRepository } from '../typeorm/repositories/address.repository';
 import { Address } from '../typeorm/entities/Address.entitie';
-// import { AppDataSource } from '../../../../src/data-source';
 interface IRequest {
   street: string;
   neighborhood: string;
@@ -13,9 +12,8 @@ interface IRequest {
 }
 class CreateService {
   public async execute(body: IRequest): Promise<Address> {
-    const newAdress = AddressRepository.create(body);
-    console.log('newAdress', newAdress);
-    const returnSave = await AddressRepository.save(newAdress);
+    const newAdress = addressRepository.create(body);
+    const returnSave = await addressRepository.save(newAdress);
     return returnSave as Address;
   }
 }

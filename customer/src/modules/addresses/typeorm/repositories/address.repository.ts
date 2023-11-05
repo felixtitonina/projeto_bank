@@ -1,6 +1,6 @@
 import { AppDataSource } from '../../../../data-source';
 import { Address } from '../entities/Address.entitie';
-export const AddressRepository = AppDataSource.getRepository(Address).extend({
+export const addressRepository = AppDataSource.getRepository(Address).extend({
   removeEmptyProperties(obj: any) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
@@ -12,7 +12,6 @@ export const AddressRepository = AppDataSource.getRepository(Address).extend({
    * @returns
    */
   findAll(query: any, opt?: any) {
-    console.log('query ---', Object.keys(query).length);
     const skip = opt.page;
     const take = opt.limit;
     const queryWhere = this.removeEmptyProperties(query);
@@ -27,7 +26,6 @@ export const AddressRepository = AppDataSource.getRepository(Address).extend({
             skip,
             take,
           };
-    console.log('queryParse ======', queryParse);
     const address = this.find(queryParse);
     return address;
   },
@@ -39,7 +37,6 @@ export const AddressRepository = AppDataSource.getRepository(Address).extend({
    * @returns
    */
   findCount(query: any, opt?: any) {
-    console.log('query ---', Object.keys(query).length);
     const skip = opt.page;
     const take = opt.limit;
     const queryWhere = this.removeEmptyProperties(query);
@@ -54,7 +51,6 @@ export const AddressRepository = AppDataSource.getRepository(Address).extend({
             skip,
             take,
           };
-    console.log('queryParse ======', queryParse);
     const count = this.count(queryParse);
     return count;
   },

@@ -1,4 +1,4 @@
-import { customerRepository } from '../typeorm/repositories/Customer.repository';
+import { customerRepository } from '../typeorm/repositories/customer.repository';
 import { Customer } from '../typeorm/entities/Customer.entitie';
 import { NotFoundError } from '../../../helpers/api-erros';
 
@@ -12,7 +12,6 @@ interface IRequest {
 class CreateService {
   public async execute(body: IRequest): Promise<Customer> {
     const findDocument = await customerRepository.findByDocuments(body.document);
-    console.log('findDocument', findDocument);
     if (findDocument) {
       throw new NotFoundError('Documento já cadastrado');
     }

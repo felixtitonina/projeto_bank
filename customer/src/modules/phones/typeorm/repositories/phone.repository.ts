@@ -1,14 +1,7 @@
 import { AppDataSource } from '../../../../data-source';
-import { Customer } from '../entities/Customer.entitie';
+import { Phone } from '../entities/Phone.entitie';
 
-export const customerRepository = AppDataSource.getRepository(Customer).extend({
-  findByDocuments(document: string) {
-    const findDocument = this.findBy({
-      document,
-    });
-    return findDocument;
-  },
-
+export const phoneRepository = AppDataSource.getRepository(Phone).extend({
   removeEmptyProperties(obj: any) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
@@ -20,7 +13,6 @@ export const customerRepository = AppDataSource.getRepository(Customer).extend({
    * @returns
    */
   findAll(query: any, opt?: any) {
-    console.log('query ---', Object.keys(query).length);
     const skip = opt.page;
     const take = opt.limit;
     const queryWhere = this.removeEmptyProperties(query);
@@ -35,9 +27,8 @@ export const customerRepository = AppDataSource.getRepository(Customer).extend({
             skip,
             take,
           };
-    console.log('queryParse ======', queryParse);
-    const address = this.find(queryParse);
-    return address;
+    const phone = this.find(queryParse);
+    return phone;
   },
 
   /**
@@ -47,7 +38,6 @@ export const customerRepository = AppDataSource.getRepository(Customer).extend({
    * @returns
    */
   findCount(query: any, opt?: any) {
-    console.log('query ---', Object.keys(query).length);
     const skip = opt.page;
     const take = opt.limit;
     const queryWhere = this.removeEmptyProperties(query);
@@ -62,7 +52,6 @@ export const customerRepository = AppDataSource.getRepository(Customer).extend({
             skip,
             take,
           };
-    console.log('queryParse ======', queryParse);
     const count = this.count(queryParse);
     return count;
   },

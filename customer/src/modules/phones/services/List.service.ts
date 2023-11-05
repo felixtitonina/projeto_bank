@@ -1,28 +1,28 @@
-import { customerRepository } from '../typeorm/repositories/customer.repository';
-import { Customer } from '../typeorm/entities/Customer.entitie';
+import { phoneRepository } from '../typeorm/repositories/phone.repository';
+import { Phone } from '../typeorm/entities/Phone.entitie';
 
 interface IRequesPagination {
   limit?: number | undefined;
   page?: number | undefined;
-  id?: number;
+  idCustomer?: number;
 }
-interface IPaginateCustomer {
+interface IPaginate {
   limit: number | undefined;
   page: number | undefined;
   total: number | undefined;
-  data: Customer[];
+  data: Phone[];
 }
 class ListService {
-  public async execute(query: IRequesPagination): Promise<IPaginateCustomer> {
+  public async execute(query: IRequesPagination): Promise<IPaginate> {
     const queryString = {
-      id: query.id,
+      idCustomer: query.idCustomer,
     };
     const opt = {
       limit: !query.limit ? 5 : query.limit,
       page: !query.page ? 0 : query.page,
     };
-    const address = await customerRepository.findAll(queryString, opt);
-    const total = await customerRepository.findCount(queryString, opt);
+    const address = await phoneRepository.findAll(queryString, opt);
+    const total = await phoneRepository.findCount(queryString, opt);
     return {
       limit: opt.limit,
       page: opt.page,

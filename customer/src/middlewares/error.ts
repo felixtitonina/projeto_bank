@@ -11,9 +11,6 @@ export const errorMiddleware = (
   next: NextFunction,
 ) => {
   const statusCode = error.statusCode ?? 500;
-  const errorObject = error;
-  // console.log('**** error.message ******', errorObject.message);
-  // console.log('**** error.details ******', JSON.stringify(errorObject));
   if (isCelebrateError(error)) {
     let data = {};
     const buildObjWithValue = (paths: string[], value = '') => {

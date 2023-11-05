@@ -1,4 +1,4 @@
-import { AddressRepository } from '../typeorm/repositories/Address.repository';
+import { addressRepository } from '../typeorm/repositories/address.repository';
 import { Address } from '../typeorm/entities/Address.entitie';
 
 interface IRequesPagination {
@@ -21,8 +21,8 @@ class ListService {
       limit: !query.limit ? 5 : query.limit,
       page: !query.page ? 0 : query.page,
     };
-    const address = await AddressRepository.findAll(queryString, opt);
-    const total = await AddressRepository.findCount(queryString, opt);
+    const address = await addressRepository.findAll(queryString, opt);
+    const total = await addressRepository.findCount(queryString, opt);
     return {
       limit: opt.limit,
       page: opt.page,

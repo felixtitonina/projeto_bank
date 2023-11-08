@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextFunction, Request, Response } from 'express';
-import { ApiError } from '../shared/errors/api-erros';
+import { ApiError } from '@shared/errors/api-erros';
 import { celebrate, Joi, Segments, isCelebrateError } from 'celebrate';
 import { EntityNotFoundError, QueryFailedError } from 'typeorm';
 

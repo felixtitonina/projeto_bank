@@ -1,6 +1,6 @@
 import { customerRepository } from '../typeorm/repositories/customer.repository';
 import { Customer } from '../typeorm/entities/Customer.entitie';
-import { NotFoundError } from '../../../shared/errors/api-erros';
+import { NotFoundError } from '@shared/errors/api-erros';
 
 class FindByIdService {
   public async execute(id: number): Promise<Customer> {

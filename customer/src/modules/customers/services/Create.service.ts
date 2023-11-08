@@ -1,6 +1,6 @@
 import { customerRepository } from '../typeorm/repositories/customer.repository';
 import { Customer } from '../typeorm/entities/Customer.entitie';
-import { NotFoundError } from '../../../shared/errors/api-erros';
+import { NotFoundError } from '@shared/errors/api-erros';
 import ICreate from '../interfaces/ICreate';
 class CreateService {
   public async execute(body: ICreate): Promise<Customer> {

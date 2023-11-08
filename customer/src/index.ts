@@ -1,8 +1,9 @@
+import 'module-alias/register';
 import 'express-async-errors';
 import express from 'express';
-import { AppDataSource } from './data-source';
-import { errorMiddleware } from './middlewares/error';
-import routes from './routes';
+import { AppDataSource } from './infra/database/data-source';
+import { errorMiddleware } from '@middlewares/error';
+import routes from './infra/router/routes';
 import apiMetrics from 'prometheus-api-metrics';
 import { errors } from 'celebrate';
 

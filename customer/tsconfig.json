@@ -1,5 +1,11 @@
 {
 	"compilerOptions": {
+	  "baseUrl": "./src",
+	  "paths": {
+		"@shared/*": ["shared/*"],
+		"@middlewares/*": ["middlewares/*"],
+		"@modules/*": ["modules/*"]
+	  },
 	  "downlevelIteration": true,
 	  "target": "es2018", /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
 	  "lib": [
@@ -21,7 +27,7 @@
 	  "strictPropertyInitialization": false, /* Check for class properties that are declared but not set in the constructor. */
 	},
 	"include": [
-	  "src/**/**/*"
+	  "src/**/**/**/*"
 	],
 	"exclude": [
 	  "node_modules",

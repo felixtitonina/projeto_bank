@@ -1,7 +1,7 @@
 import { phoneRepository } from '../typeorm/repositories/phone.repository';
 import { Phone } from '../typeorm/entities/Phone.entitie';
 import { customerRepository } from '../../customers/typeorm/repositories/customer.repository';
-import { NotFoundError } from '../../../shared/errors/api-erros';
+import { NotFoundError } from '@shared/errors/api-erros';
 import IPhone from '../interfaces/IPhone';
 class CreateService {
   public async execute(body: IPhone): Promise<Phone> {

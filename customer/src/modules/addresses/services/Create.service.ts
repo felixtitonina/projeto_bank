@@ -1,7 +1,8 @@
 import { addressRepository } from '../typeorm/repositories/address.repository';
 import { customerRepository } from '../../customers/typeorm/repositories/customer.repository';
 import { Address } from '../typeorm/entities/Address.entitie';
-import { NotFoundError } from '../../../shared/errors/api-erros';
+import { NotFoundError } from '@shared/errors/api-erros';
+// import { NotFoundError } from '../../../shared/errors/api-erros';
 import ICreate from '../interfaces/ICreate';
 class CreateService {
   public async execute(body: ICreate): Promise<Address> {

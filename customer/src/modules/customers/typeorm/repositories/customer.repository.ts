@@ -1,5 +1,6 @@
-import { AppDataSource } from '../../../../infra/database/data-source';
+import { AppDataSource } from '@infra/database/data-source';
 import { Customer } from '../entities/Customer.entitie';
+import IList from '../../interfaces/IList';
 
 export const customerRepository = AppDataSource.getRepository(Customer).extend({
   findByIdCustomer(id: number) {
@@ -18,6 +19,7 @@ export const customerRepository = AppDataSource.getRepository(Customer).extend({
     return findDocument;
   },
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   removeEmptyProperties(obj: any) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
@@ -28,20 +30,25 @@ export const customerRepository = AppDataSource.getRepository(Customer).extend({
    * @param opt
    * @returns
    */
-  findAll(query: any, opt?: any) {
-    const skip = opt.page;
-    const take = opt.limit;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async findAll(query: IList, opt: any) {
+    const skip = Number(opt.page);
+    const take = Number(opt.limit);
+
     const queryWhere = this.removeEmptyProperties(query);
+    const queryOptions = {
+      skip: take * skip,
+      take,
+    };
+
     const queryParse =
       Object.keys(queryWhere).length == 0
         ? {
-            skip,
-            take,
+            ...queryOptions,
           }
         : {
             where: [queryWhere],
-            skip,
-            take,
+            ...queryOptions,
           };
     const address = this.find(queryParse);
     return address;
@@ -53,9 +60,9 @@ export const customerRepository = AppDataSource.getRepository(Customer).extend({
    * @param opt
    * @returns
    */
-  findCount(query: any, opt?: any) {
-    const skip = opt.page;
-    const take = opt.limit;
+  findCount(query: IList, opt: IList) {
+    const skip = Number(opt.page);
+    const take = Number(opt.limit);
     const queryWhere = this.removeEmptyProperties(query);
     const queryParse =
       Object.keys(queryWhere).length == 0

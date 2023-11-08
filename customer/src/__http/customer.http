@@ -1,0 +1,51 @@
+
+
+
+###
+POST http://localhost:3002/customers
+Content-Type: application/json
+
+{
+    "name": "felix tito nina",
+    "email": "email@outlook.com",
+    "document": "430477178788"
+    # "businessName": "businessName"
+}
+
+# {
+#   "name": "felix tito nina",
+#   "email": "email@outlook.com",
+#   "document": "43047717879",
+#   "businessName": null,
+#   "id": 4,
+#   "statusRegister": "WAITING_DOCUMENT"
+# }
+
+###
+GET http://localhost:3002/customers/4
+
+# {
+#   "id": 4,
+#   "name": "felix tito nina",
+#   "email": "email@outlook.com",
+#   "document": "43047717879",
+#   "businessName": null,
+#   "statusRegister": "WAITING_DOCUMENT"
+# }
+
+###
+GET http://localhost:3002/customers?page=2
+
+
+### query string @id
+GET http://localhost:3002/customers?id=4
+
+### query string @email
+GET http://localhost:3002/customers?email=email@outlook.com
+###
+GET http://localhost:3002/customers?email=email@outlook.com&page=1
+###
+GET http://localhost:3002/customers?email=email@outlook.com&limit=2
+
+### query string @document
+GET http://localhost:3002/customers?document=43047717879

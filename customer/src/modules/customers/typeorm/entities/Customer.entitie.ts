@@ -1,7 +1,11 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 // import { Room } from './Address.entitie';
 
-@Entity('customers')
+@Entity('customers', {
+  orderBy: {
+    id: 'ASC',
+  },
+})
 export class Customer {
   @PrimaryGeneratedColumn()
   id: number;

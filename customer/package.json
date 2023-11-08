@@ -13,9 +13,10 @@
 		"lint": "npm run lint:format"
 	},
 	"_moduleAliases": {
-		"@shared": "dist/src/shared",
-		"@middlewares": "dist/src/middlewares",
-		"@modules": "dist/src/modules"
+		"@infra": "src/infra",
+		"@shared": "src/shared",
+		"@middlewares": "src/middlewares",
+		"@modules": "src/modules"
 	  },
 	"keywords": [],
 	"author": "",

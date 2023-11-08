@@ -2,6 +2,7 @@
 	"compilerOptions": {
 	  "baseUrl": "./src",
 	  "paths": {
+		"@infra/*": ["infra/*"],
 		"@shared/*": ["shared/*"],
 		"@middlewares/*": ["middlewares/*"],
 		"@modules/*": ["modules/*"]

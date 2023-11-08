@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "node ./dist/index.js",
+		"start": "node ./dist/src/index.js",
 		"build": "rm -rf ./dist && tsc",
 		"dev": "ts-node-dev src/index.ts",
 		"migrate:generate": "typeorm-ts-node-commonjs -d ./src/infra/database/data-source.ts migration:generate ./src/migrations/default",
@@ -13,9 +13,9 @@
 		"lint": "npm run lint:format"
 	},
 	"_moduleAliases": {
-		"@shared": "src/shared",
-		"@middlewares": "src/middlewares",
-		"@modules": "src/modules"
+		"@shared": "dist/src/shared",
+		"@middlewares": "dist/src/middlewares",
+		"@modules": "dist/src/modules"
 	  },
 	"keywords": [],
 	"author": "",

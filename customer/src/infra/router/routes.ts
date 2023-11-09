@@ -5,8 +5,8 @@ import phonesRouter from '@modules/phones/routes/phone.routes';
 
 const routes = Router();
 
-routes.use('/customers', customersRouter);
-routes.use('/addresses', adressesRouter);
-routes.use('/phones', phonesRouter);
+routes.use('/api/customers', customersRouter);
+routes.use('/api/addresses', adressesRouter);
+routes.use('/api/phones', phonesRouter);
 
 export default routes;

@@ -20,6 +20,8 @@ AppDataSource.initialize()
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
     app.use(apiMetrics());
     app.use(errorMiddleware);
+    console.log(`http://localhost:3002/api-docs`);
+    console.log(`http://localhost:3002/api`);
     return app.listen(process.env.PORT);
   })
   .catch((error) => console.log('TypeORM connection error: ', error));

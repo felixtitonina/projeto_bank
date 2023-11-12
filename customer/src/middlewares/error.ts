@@ -23,9 +23,11 @@ export const errorMiddleware = (
       );
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const isObject = (item: any) => {
       return item && typeof item === 'object' && !Array.isArray(item);
     };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const mergeDeep = (target: any, source: any) => {
       const output = Object.assign({}, target);
       if (isObject(target) && isObject(source)) {

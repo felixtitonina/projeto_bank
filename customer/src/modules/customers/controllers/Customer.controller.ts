@@ -6,6 +6,7 @@ export default class CustomerController {
   async create(req: Request, res: Response) {
     const createService = new CreateService();
     const { body } = req;
+    console.log('body ###########################', body);
     const returnSave = await createService.execute(body);
     return res.status(201).json({ ...returnSave });
   }

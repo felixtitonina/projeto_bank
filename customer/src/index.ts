@@ -7,7 +7,7 @@ import { errorMiddleware } from '@middlewares/error';
 import routes from './infra/router/routes';
 import apiMetrics from 'prometheus-api-metrics';
 import { errors } from 'celebrate';
-import swaggerDocs from './swagger.json';
+import swaggerDocsCustomers from './doc/customers.swagger.json';
 
 AppDataSource.initialize()
   .then(() => {
@@ -17,7 +17,7 @@ AppDataSource.initialize()
 
     app.use(errors());
     app.use(routes);
-    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocsCustomers));
     app.use(apiMetrics());
     app.use(errorMiddleware);
     console.log(`http://localhost:3002/api-docs`);

@@ -61,7 +61,7 @@ export const errorMiddleware = (
     return res.status(404).json({ message: 'Não encontrado.' });
   }
   if (error instanceof QueryFailedError) {
-    return res.status(404).json({ message: 'Filtros inválidos.' });
+    return res.status(404).json({ message: 'Um ou mais filtros inválidos.' });
   }
 
   const message = error.message ? error.message : { message: 'Internal Server Error.' };

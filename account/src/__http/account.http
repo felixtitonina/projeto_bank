@@ -1,0 +1,8 @@
+###
+POST http://localhost:3003/api/accounts
+Content-Type: application/json
+
+{
+    "idCustomer": 1,
+    "idProduct": 1
+}

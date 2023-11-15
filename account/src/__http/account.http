@@ -6,3 +6,19 @@ Content-Type: application/json
     "idCustomer": 1,
     "idProduct": 1
 }
+
+###
+GET http://localhost:3003/api/accounts?id=4
+Content-Type: application/json
+
+###
+GET http://localhost:3003/api/accounts?document=43047717894
+Content-Type: application/json
+
+###
+GET http://localhost:3003/api/accounts?idCustomer=1&limit=1
+Content-Type: application/json
+
+###
+GET http://localhost:3003/api/accounts/4
+Content-Type: application/json

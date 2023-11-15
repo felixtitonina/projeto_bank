@@ -5,7 +5,8 @@ import AccountController from '../controllers/Account.controller';
 const accountRouter = Router();
 const accountController = new AccountController();
 
-// accountRouter.get('/', accountController.list);
+accountRouter.get('/', accountController.list);
+accountRouter.get('/:id', accountController.id);
 
 accountRouter.post(
   '/',

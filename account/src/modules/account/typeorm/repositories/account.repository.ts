@@ -1,6 +1,15 @@
 import { AppDataSource } from '@infra/database/data-source';
 import { Account } from '../entities/Account.entitie';
 export const accountRepository = AppDataSource.getRepository(Account).extend({
+  findByIdAccount(id: number) {
+    const findByIdAccount = this.findOne({
+      where: {
+        id: id,
+      },
+    });
+    return findByIdAccount;
+  },
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   removeEmptyProperties(obj: any) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

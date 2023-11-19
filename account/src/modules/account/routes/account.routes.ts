@@ -1,24 +1,20 @@
 import { Router } from 'express';
-import { celebrate, Joi, Segments } from 'celebrate';
 import AccountController from '../controllers/Account.controller';
+import { schemaCreate } from '../schemas/create.schema';
+
+import {
+  validatorQueryMiddleware,
+  validatorBodyMiddleware,
+} from '@shared/validator/validator.schama';
+import { schemaList } from '../schemas/list.schema';
 
 const accountRouter = Router();
 const accountController = new AccountController();
 
-accountRouter.get('/', accountController.list);
+accountRouter.get('/', validatorQueryMiddleware(schemaList), accountController.list);
+
 accountRouter.get('/:id', accountController.id);
 
-accountRouter.post(
-  '/',
-  celebrate({
-    [Segments.BODY]: {
-      idCustomer: Joi.number().required(),
-      idProduct: Joi.number().required(),
-      idChargeBasket: Joi.number().optional(),
-      idLogin: Joi.string().optional(),
-    },
-  }),
-  accountController.create,
-);
+accountRouter.post('/', validatorBodyMiddleware(schemaCreate), accountController.create);
 
 export default accountRouter;

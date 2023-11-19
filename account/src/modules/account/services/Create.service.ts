@@ -10,6 +10,7 @@ class CreateService {
     const customer = await requestApi({
       url: `${process.env.URL_MSO_CUSTOMER}/${body.idCustomer}`,
     });
+    // todo: validar o idLogin
     const { name, email, document, id } = customer.data;
     const data = {
       ...body,

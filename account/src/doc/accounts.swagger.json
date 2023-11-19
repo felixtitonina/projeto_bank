@@ -156,7 +156,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/Account"
+                                    "$ref": "#/components/schemas/AccountList"
                                 }
                             }
                         }
@@ -210,31 +210,59 @@
                 "type": "object",
                 "properties": {
                     "document": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "43047717894"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "felix tito nina"
                     },
                     "idCustomer": {
-                        "type": "number"
+                        "type": "number",
+                        "example": 1
                     },
                     "idProduct": {
-                        "type": "number"
+                        "type": "number",
+                        "example": 1
                     },
                     "idLogin": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "2ea88bc8f818102958c1770e3d0adf60"
                     },
                     "id": {
-                        "type": "number"
+                        "type": "number",
+                        "example": 60
                     },
                     "amount": {
-                        "type": "number"
+                        "type": "number",
+                        "example": 0
                     },
                     "status": {
-                        "type": "number"
+                        "type": "number",
+                        "example": 0
                     },
                     "idChargeBasket": {
-                        "type": "number"
+                        "type": "number",
+                        "example": 1
+                    }
+                }
+            },
+            "AccountList": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "number",
+                        "example": 1
+                    },
+                    "page": {
+                        "type": "number",
+                        "example": 1
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Account"
+                        }
                     }
                 }
             }

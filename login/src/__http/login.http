@@ -1,0 +1,18 @@
+###
+GET http://localhost:3004/api/login
+Content-Type: application/json
+
+###
+POST http://localhost:3004/api/login
+Content-Type: application/json
+
+{
+    "name": "felix tito nina",
+    "nameCompany": "tito it",
+    "email": "felixtitonina@outlook.com",
+    "password": "21231321",
+    "document": "43047717877",
+    "status": 1,
+    "idCustomer": 1,
+    "idProduct": 1
+}

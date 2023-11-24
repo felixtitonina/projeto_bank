@@ -1,7 +1,10 @@
 import mongoose from '@infra/database/database';
+import { Schema, Document } from 'mongoose';
+import ILogin from '../../interfaces/ILogin';
+
 import mongoosePaginate from 'mongoose-paginate';
 
-const loginSchema = new mongoose.db.Schema(
+const loginSchema: Schema = new Schema(
   {
     name: {
       type: String,
@@ -46,5 +49,5 @@ const loginSchema = new mongoose.db.Schema(
   { timestamps: {} },
 );
 loginSchema.plugin(mongoosePaginate);
-const schemaModel = mongoose.db.model('logins', loginSchema);
+const schemaModel = mongoose.db.model<ILogin & Document>('logins', loginSchema);
 export default schemaModel;

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import CreateLoginService from '../services/Create.service';
 import ListLoginService from '../services/List.service';
+import FindByIdService from '../services/FindById.service';
 
 export default class LoginController {
   async create(req: Request, res: Response) {
@@ -13,6 +14,12 @@ export default class LoginController {
     const listLoginService = new ListLoginService();
     const { query } = req;
     const output = await listLoginService.execute(query);
+    return res.json(output);
+  }
+  async findById(req: Request, res: Response) {
+    const findByIdService = new FindByIdService();
+    const { id } = req.params;
+    const output = await findByIdService.execute(id);
     return res.json(output);
   }
 }

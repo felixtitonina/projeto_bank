@@ -1,5 +1,13 @@
 ###
+GET http://localhost:3004/api/login/655fb083d890c141e56f7f95
+Content-Type: application/json
+
+###
 GET http://localhost:3004/api/login
+Content-Type: application/json
+
+###
+GET http://localhost:3004/api/login?id=655fb083d890c141e56f7f95
 Content-Type: application/json
 
 ###

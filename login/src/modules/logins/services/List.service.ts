@@ -1,9 +1,10 @@
-import IList from '../interfaces/IList';
+// import IList from '../interfaces/IList';
 import IQuery from '../interfaces/IQuery';
 import ListLogin from '../mogoose/repositories/List-user';
 
 class ListService {
-  public async execute(query: IQuery): Promise<IList[]> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public async execute(query: IQuery): Promise<any> {
     const listLogin = new ListLogin();
     const { limit = 5, page = 1 } = query;
     const queryString = {
@@ -13,12 +14,7 @@ class ListService {
       document: query.document,
       status: query.status,
     };
-    const opt = {
-      limit,
-      page,
-    };
-    console.log(opt);
-    const outPut = await listLogin.ListLogin(queryString);
+    const outPut = await listLogin.ListLogin(queryString, page, limit);
     return outPut;
   }
 }

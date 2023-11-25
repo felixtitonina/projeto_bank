@@ -2,7 +2,8 @@ import mongoose from '@infra/database/database';
 import { Schema, Document } from 'mongoose';
 import ILogin from '../../interfaces/ILogin';
 
-import mongoosePaginate from 'mongoose-paginate';
+// import mongoosePaginate from 'mongoose-paginate';
+import { mongoosePagination, Pagination } from 'mongoose-paginate-ts';
 
 const loginSchema: Schema = new Schema(
   {
@@ -48,6 +49,6 @@ const loginSchema: Schema = new Schema(
   },
   { timestamps: {} },
 );
-loginSchema.plugin(mongoosePaginate);
-const schemaModel = mongoose.db.model<ILogin & Document>('logins', loginSchema);
+loginSchema.plugin(mongoosePagination);
+const schemaModel = mongoose.db.model<ILogin & Document, Pagination<ILogin>>('logins', loginSchema);
 export default schemaModel;

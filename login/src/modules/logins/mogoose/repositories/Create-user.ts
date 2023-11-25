@@ -1,10 +1,11 @@
-import ILogin from './../../interfaces/ILogin';
+import IInputCreateLogin from './../../interfaces/IInputCreateLogin';
+import IOutputCreateLogin from './../../interfaces/IOutputCreateLogin';
 import Login from '../entities/login.entitie';
 
 export default class MongoCreateRepository {
   public logins = Login;
-  async createLogin(body: ILogin): Promise<ILogin> {
-    const outPut: ILogin = await this.logins.create(body);
-    return outPut;
+  async createLogin(body: IInputCreateLogin): Promise<IOutputCreateLogin> {
+    const outPut: IOutputCreateLogin = await this.logins.create(body);
+    return outPut as IOutputCreateLogin;
   }
 }
